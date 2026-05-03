@@ -10,7 +10,8 @@ TENANT_ID = os.environ.get('TENANT_ID', '')
 app = Flask(__name__)
 
 def get_df():
-    return pd.read_csv('/home/site/wwwroot/sample_data.csv')
+    base = os.path.dirname(os.path.abspath(__file__))
+    return pd.read_csv(os.path.join(base, 'sample_data.csv'))
 
 def answer(txt):
     df = get_df()
