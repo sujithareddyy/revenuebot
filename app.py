@@ -8,10 +8,22 @@ APP_ID = os.environ.get('MICROSOFT_APP_ID', '')
 APP_PW = os.environ.get('MICROSOFT_APP_PASSWORD', '')
 TENANT_ID = os.environ.get('TENANT_ID', '')
 app = Flask(__name__)
-
+@app.route('/health')
+def health():
+    try:
+        df = get_df()
+        return f'OK rows={len(df)}'
+    except Exception as e:
+        return f'ERROR: {e}', 500
 def get_df():
-    base = os.path.dirname(os.path.abspath(__file__))
-    return pd.read_csv(os.path.join(base, 'sample_data.csv'))
+    try:
+        base = os.path.dirname(os.path.abspath(__file__))
+        path = os.path.join(base, 'sample_data.csv')
+        print(f'Loading from: {path}')
+        return pd.read_csv(path)
+    except Exception as e:
+        print(f'get_df error: {e}')
+        raise
 
 def answer(txt):
     df = get_df()
