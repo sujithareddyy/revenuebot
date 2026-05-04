@@ -1,0 +1,14 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "MICROSOFT_APP_ID": "",
+    "MICROSOFT_APP_PASSWORD": "",
+    "TENANT_ID": "",
+    "ADLS_ACCOUNT_NAME": "",
+    "ADLS_ACCOUNT_KEY": "",
+    "ADLS_FILESYSTEM": "",
+    "ADLS_FILE_PATH": ""
+  }
+}
